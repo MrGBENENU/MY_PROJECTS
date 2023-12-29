@@ -64,3 +64,18 @@ GROUP BY
     Transmission -- Grouping the results by transmission type
 ORDER BY 
     Transmission;
+
+
+
+
+--5.) AVERAGE PRICE BY DRIVE TRAIN
+-- Selecting the DriveType and calculating the average price
+SELECT DriveType, AVG(CAST(Price AS DECIMAL)) AS AvgPrice
+-- From the specified table in the PROJECTS database
+FROM PROJECTS.dbo.AUSTRALIA_CAR_PRICES
+-- Filtering out rows where DriveType is 'other'
+WHERE DriveType <> 'other'
+-- Grouping the results by DriveType
+GROUP BY DriveType
+-- Ordering the results in descending order of average price
+ORDER BY AvgPrice DESC;
